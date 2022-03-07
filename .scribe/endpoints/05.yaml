@@ -1,0 +1,75 @@
+name: 'Social Login'
+description: |-
+
+  소셜 로그인/회원가입 처리를 합니다.
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/social
+    metadata:
+      title: '소셜 로그인/회원가입'
+      description: |-
+        소셜 로그인을 통해 소셜 측 유저 데이터를 서버에서 전달 받아<br>
+        해당 데이터를 기반으로 가입 여부를 판단합니다.
+
+        <p>
+            <b>가입하지 않았을 경우 회원가입, 가입했을 경우 로그인 로직을 탑니다.</b><br>
+            <b>response 데이터는 회원가입 API와 로그인 API 부분을 참고해주세요</b>
+        </p>
+
+        <aside>
+        유저의 닉네임 데이터는 로그인 처리할 때는 필요하지 않지만 회원가입 처리 시에는 필요하므로 꼭 보내주세요.
+        </aside>
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      platform:
+        name: platform
+        description: '로그인 플랫폼<br>(`naver`, `kakao`, `google`)'
+        required: true
+        example: naver
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 이메일
+        required: true
+        example: test@test.co.kr
+        type: string
+        custom: []
+      nickname:
+        name: nickname
+        description: 닉네임
+        required: true
+        example: mynickname1234
+        type: string
+        custom: []
+      device_name:
+        name: device_name
+        description: '토큰 발급에 쓰일 디바이스명'
+        required: true
+        example: device-name
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'SNS 아이디'
+        required: true
+        example: '111086235715594204387'
+        type: string
+        custom: []
+      is_push:
+        name: is_push
+        description: '푸시 발송 여부'
+        required: false
+        example: 'false'
+        type: boolean/string
+        custom: []
+    responses: []
+    responseFields: []

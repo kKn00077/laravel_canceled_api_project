@@ -1,0 +1,1359 @@
+openapi: 3.0.3
+info:
+  title: 쌀먹
+  description: '쌀먹 API에 관련한 문서입니다.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://sm-dev.udnm.co.kr'
+paths:
+  /api/ad/list:
+    get:
+      summary: '광고 리스트'
+      description: '포지션(광고 위치)에 맞는 광고 리스트를 가져옵니다.'
+      parameters:
+        -
+          in: query
+          name: position
+          description: '광고 위치(기본값 : 1)'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: '광고 위치(기본값 : 1)'
+            example: 1
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  header:
+                    code: '0000'
+                    msg: 성공
+                  body:
+                    ad_list:
+                      -
+                        id: 112
+                        ad_position: 1
+                        ad_image_url: 'http://cnn.com/en-us'
+                        ad_title: 'pede. Cras vulputate velit'
+                        ad_company: 'sapien,'
+                        ad_note: 'metus. In lorem. Donec elementum, lorem ut aliquam iaculis,'
+                        ad_start_at: '2021-03-29 23:41:33'
+                        ad_end_at: '2022-05-14 16:48:09'
+                        order: 1
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                      -
+                        id: 188
+                        ad_position: 1
+                        ad_image_url: 'http://cnn.com/en-ca'
+                        ad_title: 'egestas hendrerit'
+                        ad_company: diam
+                        ad_note: 'Cras eu'
+                        ad_start_at: '2021-03-13 09:49:40'
+                        ad_end_at: '2022-10-12 13:26:00'
+                        order: 1
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                      -
+                        id: 177
+                        ad_position: 1
+                        ad_image_url: 'http://naver.com/user/110'
+                        ad_title: primis
+                        ad_company: Vivamus
+                        ad_note: 'facilisis eget, ipsum.'
+                        ad_start_at: '2021-03-26 13:33:04'
+                        ad_end_at: '2022-07-01 07:42:03'
+                        order: 2
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                      -
+                        id: 124
+                        ad_position: 1
+                        ad_image_url: 'http://baidu.com/en-us'
+                        ad_title: 'In nec orci. Donec'
+                        ad_company: tincidunt
+                        ad_note: ligula
+                        ad_start_at: '2021-03-29 15:50:30'
+                        ad_end_at: '2023-01-26 19:38:17'
+                        order: 4
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                      -
+                        id: 151
+                        ad_position: 1
+                        ad_image_url: 'http://bbc.co.uk/fr'
+                        ad_title: 'Aliquam ultrices iaculis'
+                        ad_company: nunc
+                        ad_note: 'non, cursus non, egestas a,'
+                        ad_start_at: '2021-03-22 00:42:50'
+                        ad_end_at: '2022-11-09 22:09:59'
+                        order: 6
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                      -
+                        id: 186
+                        ad_position: 1
+                        ad_image_url: 'http://twitter.com/settings'
+                        ad_title: 'metus sit amet ante.'
+                        ad_company: cursus
+                        ad_note: 'Pellentesque ultricies dignissim lacus.'
+                        ad_start_at: '2021-03-12 03:56:41'
+                        ad_end_at: '2022-03-29 15:00:03'
+                        order: 9
+                        created_at: '2021-03-07T01:09:00.000000Z'
+                        updated_at: '2021-03-07T01:09:00.000000Z'
+                properties:
+                  header:
+                    type: object
+                    example:
+                      code: '0000'
+                      msg: 성공
+                  body:
+                    type: object
+                    example:
+                      ad_list:
+                        -
+                          id: 112
+                          ad_position: 1
+                          ad_image_url: 'http://cnn.com/en-us'
+                          ad_title: 'pede. Cras vulputate velit'
+                          ad_company: 'sapien,'
+                          ad_note: 'metus. In lorem. Donec elementum, lorem ut aliquam iaculis,'
+                          ad_start_at: '2021-03-29 23:41:33'
+                          ad_end_at: '2022-05-14 16:48:09'
+                          order: 1
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+                        -
+                          id: 188
+                          ad_position: 1
+                          ad_image_url: 'http://cnn.com/en-ca'
+                          ad_title: 'egestas hendrerit'
+                          ad_company: diam
+                          ad_note: 'Cras eu'
+                          ad_start_at: '2021-03-13 09:49:40'
+                          ad_end_at: '2022-10-12 13:26:00'
+                          order: 1
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+                        -
+                          id: 177
+                          ad_position: 1
+                          ad_image_url: 'http://naver.com/user/110'
+                          ad_title: primis
+                          ad_company: Vivamus
+                          ad_note: 'facilisis eget, ipsum.'
+                          ad_start_at: '2021-03-26 13:33:04'
+                          ad_end_at: '2022-07-01 07:42:03'
+                          order: 2
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+                        -
+                          id: 124
+                          ad_position: 1
+                          ad_image_url: 'http://baidu.com/en-us'
+                          ad_title: 'In nec orci. Donec'
+                          ad_company: tincidunt
+                          ad_note: ligula
+                          ad_start_at: '2021-03-29 15:50:30'
+                          ad_end_at: '2023-01-26 19:38:17'
+                          order: 4
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+                        -
+                          id: 151
+                          ad_position: 1
+                          ad_image_url: 'http://bbc.co.uk/fr'
+                          ad_title: 'Aliquam ultrices iaculis'
+                          ad_company: nunc
+                          ad_note: 'non, cursus non, egestas a,'
+                          ad_start_at: '2021-03-22 00:42:50'
+                          ad_end_at: '2022-11-09 22:09:59'
+                          order: 6
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+                        -
+                          id: 186
+                          ad_position: 1
+                          ad_image_url: 'http://twitter.com/settings'
+                          ad_title: 'metus sit amet ante.'
+                          ad_company: cursus
+                          ad_note: 'Pellentesque ultricies dignissim lacus.'
+                          ad_start_at: '2021-03-12 03:56:41'
+                          ad_end_at: '2022-03-29 15:00:03'
+                          order: 9
+                          created_at: '2021-03-07T01:09:00.000000Z'
+                          updated_at: '2021-03-07T01:09:00.000000Z'
+      tags:
+        - Advertisement
+      security: []
+  /api/auth/token:
+    post:
+      summary: '토큰 생성 (로그인)'
+      description: '토큰 생성 API 입니다. 일반적으로 로그인 처리를 위한 토큰을 발급받을 때 사용할 수 있습니다.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  header:
+                    code: '0000'
+                    msg: 성공
+                  body:
+                    bearer_token: 19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm
+                properties:
+                  header:
+                    type: object
+                    example:
+                      code: '0000'
+                      msg: 성공
+                  body:
+                    type: object
+                    example:
+                      bearer_token: 19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm
+      tags:
+        - 'Bearer Token'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform:
+                  type: string
+                  description: '로그인 플랫폼<br>(`native`-기본값, `naver`, `kakao`, `google`)'
+                  example: naver
+                email:
+                  type: string
+                  description: 이메일
+                  example: test@test.co.kr
+                device_name:
+                  type: string
+                  description: '토큰 발급에 쓰일 디바이스명'
+                  example: device-name
+                password:
+                  type: string
+                  description: '패스워드<br>(쌀먹 자체 로그인의 경우 꼭 기입해주세요)'
+                  example: test1234
+                id:
+                  type: string
+                  description: 'SNS 아이디<br>(SNS 로그인의 경우 꼭 기입해주세요)'
+                  example: '111086235715594204387'
+              required:
+                - email
+                - device_name
+      security: []
+    delete:
+      summary: '토큰 삭제 (로그아웃)'
+      description: "유저가 현재 액세스한 토큰의 정보를 DB상에서 삭제합니다. 일반적으로 로그아웃 시에 사용되며\n해당 API 실행 이후 파괴된 토큰으로는 두번 다시 해당 토큰을 통한 인증이 불가능합니다."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 6PVcfgb3haE5keD8Z4ad61v'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Bearer Token'
+  '/api/verify-email/{id}/{hash}':
+    get:
+      summary: '이메일 검증'
+      description: "유저 정보를 조회해 검증 처리를 합니다.\n해당 로직을 접근할 수 있는 URL은 서버 내에서 검증된 URL입니다.\n일반적으로 접근할 수 없습니다."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid signature.'
+                  exception: Illuminate\Routing\Exceptions\InvalidSignatureException
+                  file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ValidateSignature.php'
+                  line: 26
+                  trace:
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ValidateSignature
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                      line: 50
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\SubstituteBindings
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 127
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 63
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 127
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 103
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 55
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 723
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 698
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 662
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 651
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 167
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 128
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\app\Http\Middleware\JsonAccept.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: App\Http\Middleware\JsonAccept
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 142
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 111
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 89
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 222
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 179
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 116
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 117
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 75
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 51
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 48
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 40
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 653
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 136
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Command\Command.php'
+                      line: 298
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 121
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                      line: 1015
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                      line: 299
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                      line: 171
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 94
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid signature.'
+                  exception:
+                    type: string
+                    example: Illuminate\Routing\Exceptions\InvalidSignatureException
+                  file:
+                    type: string
+                    example: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ValidateSignature.php'
+                  line:
+                    type: integer
+                    example: 26
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ValidateSignature
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                        line: 50
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\SubstituteBindings
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 127
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 63
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 127
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 103
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 55
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 723
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 698
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 662
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 651
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 167
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 128
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\app\Http\Middleware\JsonAccept.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: App\Http\Middleware\JsonAccept
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 142
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 111
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 89
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 222
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 179
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 116
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 117
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 75
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 51
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 48
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 40
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 653
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 136
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Command\Command.php'
+                        line: 298
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 121
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                        line: 1015
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                        line: 299
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\symfony\console\Application.php'
+                        line: 171
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 94
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\DNM-Dev2\Desktop\디앤엠\개발\쌀먹\git repos\ssalmuk-api\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+      tags:
+        - 'Email Verify'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: '유저의 키값'
+        example: 16
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: hash
+        description: '서버내부에서 처리한 해시값'
+        example: aperiam
+        required: true
+        schema:
+          type: string
+  /api/email/verification-notification:
+    post:
+      summary: '이메일 인증 재발송'
+      description: "이메일 인증을 위한 메일을 재발송하는 API입니다.\n인증 메일을 받게 될 이메일 정보를 입력해야합니다."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer eE8dPZ5g3V16D6kfa4achvb'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  header:
+                    code: '1000'
+                    msg: '이미 인증된 이메일 입니다.'
+                  body: []
+                properties:
+                  header:
+                    type: object
+                    example:
+                      code: '1000'
+                      msg: '이미 인증된 이메일 입니다.'
+                  body:
+                    type: array
+                    example: []
+      tags:
+        - 'Email Verify ReSend'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 이메일
+                  example: test@test.co.kr
+              required:
+                - email
+  /api/register:
+    post:
+      summary: 회원가입
+      description: '회원가입 처리를 하는 API입니다.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  header:
+                    code: '0000'
+                    msg: 성공
+                  body:
+                    bearer_token: 19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm
+                properties:
+                  header:
+                    type: object
+                    example:
+                      code: '0000'
+                      msg: 성공
+                  body:
+                    type: object
+                    example:
+                      bearer_token: 19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm
+      tags:
+        - 'Sign Up'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform:
+                  type: string
+                  description: '회원가입 플랫폼<br>(`native`-기본값, `naver`, `kakao`, `google`)'
+                  example: naver
+                nickname:
+                  type: string
+                  description: 닉네임
+                  example: mynickname1234
+                email:
+                  type: string
+                  description: 이메일
+                  example: test@test.co.kr
+                device_name:
+                  type: string
+                  description: '토큰 발급에 쓰일 디바이스명'
+                  example: device-name
+                password:
+                  type: string
+                  description: '패스워드<br>(쌀먹 자체 회원가입의 경우 꼭 기입해주세요)'
+                  example: test1234
+                id:
+                  type: string
+                  description: 'SNS 아이디<br>(SNS 회원가입의 경우 꼭 기입해주세요)'
+                  example: '111086235715594204387'
+                is_push:
+                  type: boolean/string
+                  description: '푸시 발송 여부'
+                  example: 'false'
+              required:
+                - nickname
+                - email
+                - device_name
+      security: []
+  /api/auth/social:
+    post:
+      summary: '소셜 로그인/회원가입'
+      description: "소셜 로그인을 통해 소셜 측 유저 데이터를 서버에서 전달 받아<br>\n해당 데이터를 기반으로 가입 여부를 판단합니다.\n\n<p>\n    <b>가입하지 않았을 경우 회원가입, 가입했을 경우 로그인 로직을 탑니다.</b><br>\n    <b>response 데이터는 회원가입 API와 로그인 API 부분을 참고해주세요</b>\n</p>\n\n<aside>\n유저의 닉네임 데이터는 로그인 처리할 때는 필요하지 않지만 회원가입 처리 시에는 필요하므로 꼭 보내주세요.\n</aside>"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Social Login'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform:
+                  type: string
+                  description: '로그인 플랫폼<br>(`naver`, `kakao`, `google`)'
+                  example: naver
+                email:
+                  type: string
+                  description: 이메일
+                  example: test@test.co.kr
+                nickname:
+                  type: string
+                  description: 닉네임
+                  example: mynickname1234
+                device_name:
+                  type: string
+                  description: '토큰 발급에 쓰일 디바이스명'
+                  example: device-name
+                id:
+                  type: string
+                  description: 'SNS 아이디'
+                  example: '111086235715594204387'
+                is_push:
+                  type: boolean/string
+                  description: '푸시 발송 여부'
+                  example: 'false'
+              required:
+                - platform
+                - email
+                - nickname
+                - device_name
+                - id
+      security: []
+tags:
+  -
+    name: Advertisement
+    description: "\n광고에 관련한 API를 지원합니다."
+  -
+    name: 'Bearer Token'
+    description: "\n인증(로그인)에 필요한 토큰 관련 API입니다."
+  -
+    name: 'Email Verify'
+    description: "\n이메일 검증을 합니다. \n유저가 메일 링크를 클릭하여 동작하는 로직입니다\n어플 내에서는 기본적으로 호출할 일이 없으니 참고용으로만 써주세요."
+  -
+    name: 'Email Verify ReSend'
+    description: ''
+  -
+    name: 'Sign Up'
+    description: "\n자체 회원가입 / SNS 로그인(회원가입)을 지원합니다."
+  -
+    name: 'Social Login'
+    description: "\n소셜 로그인/회원가입 처리를 합니다."
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

@@ -1,0 +1,1714 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>쌀먹</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://sm-dev.udnm.co.kr";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.24.0.js"></script>
+
+    <script src="../docs/js/theme-default-3.24.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="advertisement">
+                    <a href="#advertisement">Advertisement</a>
+                </li>
+                                    <ul id="tocify-subheader-advertisement" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="advertisement-GETapi-ad-list">
+                        <a href="#advertisement-GETapi-ad-list">광고 리스트</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="bearer-token">
+                    <a href="#bearer-token">Bearer Token</a>
+                </li>
+                                    <ul id="tocify-subheader-bearer-token" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="bearer-token-POSTapi-auth-token">
+                        <a href="#bearer-token-POSTapi-auth-token">토큰 생성 (로그인)</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="bearer-token-DELETEapi-auth-token">
+                        <a href="#bearer-token-DELETEapi-auth-token">토큰 삭제 (로그아웃)</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="email-verify">
+                    <a href="#email-verify">Email Verify</a>
+                </li>
+                                    <ul id="tocify-subheader-email-verify" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="email-verify-GETapi-verify-email--id---hash-">
+                        <a href="#email-verify-GETapi-verify-email--id---hash-">이메일 검증</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="email-verify-resend">
+                    <a href="#email-verify-resend">Email Verify ReSend</a>
+                </li>
+                                    <ul id="tocify-subheader-email-verify-resend" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="email-verify-resend-POSTapi-email-verification-notification">
+                        <a href="#email-verify-resend-POSTapi-email-verification-notification">이메일 인증 재발송</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-6" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="sign-up">
+                    <a href="#sign-up">Sign Up</a>
+                </li>
+                                    <ul id="tocify-subheader-sign-up" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="sign-up-POSTapi-register">
+                        <a href="#sign-up-POSTapi-register">회원가입</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-7" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="social-login">
+                    <a href="#social-login">Social Login</a>
+                </li>
+                                    <ul id="tocify-subheader-social-login" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="social-login-POSTapi-auth-social">
+                        <a href="#social-login-POSTapi-auth-social">소셜 로그인/회원가입</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: March 7 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>쌀먹 API에 관련한 문서입니다.</p>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://sm-dev.udnm.co.kr</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>아래의 엔드포인트 중에서<br>
+인증이 필요한 엔드포인트의 경우<br>
+헤더에 <strong><code>Authorization: "Bearer your-token"</code></strong>
+<br>데이터를 추가해주세요.</p>
+<p>인증이 필요한 모든 엔드포인트는 해당 헤더값이 <strong><code>필수</code></strong>입니다.</p>
+
+        <h1 id="advertisement">Advertisement</h1>
+
+    <p>광고에 관련한 API를 지원합니다.</p>
+
+            <h2 id="advertisement-GETapi-ad-list">광고 리스트</h2>
+
+<p>
+</p>
+
+<p>포지션(광고 위치)에 맞는 광고 리스트를 가져옵니다.</p>
+
+<span id="example-requests-GETapi-ad-list">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://sm-dev.udnm.co.kr/api/ad/list?position=1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/ad/list"
+);
+
+const params = {
+    "position": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-ad-list">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;0000&quot;,
+        &quot;msg&quot;: &quot;성공&quot;
+    },
+    &quot;body&quot;: {
+        &quot;ad_list&quot;: [
+            {
+                &quot;id&quot;: 112,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://cnn.com/en-us&quot;,
+                &quot;ad_title&quot;: &quot;pede. Cras vulputate velit&quot;,
+                &quot;ad_company&quot;: &quot;sapien,&quot;,
+                &quot;ad_note&quot;: &quot;metus. In lorem. Donec elementum, lorem ut aliquam iaculis,&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-29 23:41:33&quot;,
+                &quot;ad_end_at&quot;: &quot;2022-05-14 16:48:09&quot;,
+                &quot;order&quot;: 1,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 188,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://cnn.com/en-ca&quot;,
+                &quot;ad_title&quot;: &quot;egestas hendrerit&quot;,
+                &quot;ad_company&quot;: &quot;diam&quot;,
+                &quot;ad_note&quot;: &quot;Cras eu&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-13 09:49:40&quot;,
+                &quot;ad_end_at&quot;: &quot;2022-10-12 13:26:00&quot;,
+                &quot;order&quot;: 1,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 177,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://naver.com/user/110&quot;,
+                &quot;ad_title&quot;: &quot;primis&quot;,
+                &quot;ad_company&quot;: &quot;Vivamus&quot;,
+                &quot;ad_note&quot;: &quot;facilisis eget, ipsum.&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-26 13:33:04&quot;,
+                &quot;ad_end_at&quot;: &quot;2022-07-01 07:42:03&quot;,
+                &quot;order&quot;: 2,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 124,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://baidu.com/en-us&quot;,
+                &quot;ad_title&quot;: &quot;In nec orci. Donec&quot;,
+                &quot;ad_company&quot;: &quot;tincidunt&quot;,
+                &quot;ad_note&quot;: &quot;ligula&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-29 15:50:30&quot;,
+                &quot;ad_end_at&quot;: &quot;2023-01-26 19:38:17&quot;,
+                &quot;order&quot;: 4,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 151,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://bbc.co.uk/fr&quot;,
+                &quot;ad_title&quot;: &quot;Aliquam ultrices iaculis&quot;,
+                &quot;ad_company&quot;: &quot;nunc&quot;,
+                &quot;ad_note&quot;: &quot;non, cursus non, egestas a,&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-22 00:42:50&quot;,
+                &quot;ad_end_at&quot;: &quot;2022-11-09 22:09:59&quot;,
+                &quot;order&quot;: 6,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 186,
+                &quot;ad_position&quot;: 1,
+                &quot;ad_image_url&quot;: &quot;http://twitter.com/settings&quot;,
+                &quot;ad_title&quot;: &quot;metus sit amet ante.&quot;,
+                &quot;ad_company&quot;: &quot;cursus&quot;,
+                &quot;ad_note&quot;: &quot;Pellentesque ultricies dignissim lacus.&quot;,
+                &quot;ad_start_at&quot;: &quot;2021-03-12 03:56:41&quot;,
+                &quot;ad_end_at&quot;: &quot;2022-03-29 15:00:03&quot;,
+                &quot;order&quot;: 9,
+                &quot;created_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-03-07T01:09:00.000000Z&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-ad-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-ad-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-ad-list"></code></pre>
+</span>
+<span id="execution-error-GETapi-ad-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-ad-list"></code></pre>
+</span>
+<form id="form-GETapi-ad-list" data-method="GET"
+      data-path="api/ad/list"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-ad-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-ad-list"
+                    onclick="tryItOut('GETapi-ad-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-ad-list"
+                    onclick="cancelTryOut('GETapi-ad-list');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-ad-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/ad/list</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>position</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="position"
+               data-endpoint="GETapi-ad-list"
+               value="1"
+               data-component="query" hidden>
+    <br>
+<p>광고 위치(기본값 : 1)</p>
+            </p>
+                </form>
+
+        <h1 id="bearer-token">Bearer Token</h1>
+
+    <p>인증(로그인)에 필요한 토큰 관련 API입니다.</p>
+
+            <h2 id="bearer-token-POSTapi-auth-token">토큰 생성 (로그인)</h2>
+
+<p>
+</p>
+
+<p>토큰 생성 API 입니다. 일반적으로 로그인 처리를 위한 토큰을 발급받을 때 사용할 수 있습니다.</p>
+
+<span id="example-requests-POSTapi-auth-token">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://sm-dev.udnm.co.kr/api/auth/token" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"platform\": \"naver\",
+    \"email\": \"test@test.co.kr\",
+    \"device_name\": \"device-name\",
+    \"password\": \"test1234\",
+    \"id\": \"111086235715594204387\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/auth/token"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "platform": "naver",
+    "email": "test@test.co.kr",
+    "device_name": "device-name",
+    "password": "test1234",
+    "id": "111086235715594204387"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-token">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;0000&quot;,
+        &quot;msg&quot;: &quot;성공&quot;
+    },
+    &quot;body&quot;: {
+        &quot;bearer_token&quot;: &quot;19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-token" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-token"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-token"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-token" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-token"></code></pre>
+</span>
+<form id="form-POSTapi-auth-token" data-method="POST"
+      data-path="api/auth/token"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-token', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-token"
+                    onclick="tryItOut('POSTapi-auth-token');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-token"
+                    onclick="cancelTryOut('POSTapi-auth-token');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-token" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/token</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>platform</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="platform"
+               data-endpoint="POSTapi-auth-token"
+               value="naver"
+               data-component="body" hidden>
+    <br>
+<p>로그인 플랫폼<br>(<code>native</code>-기본값, <code>naver</code>, <code>kakao</code>, <code>google</code>)</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-token"
+               value="test@test.co.kr"
+               data-component="body" hidden>
+    <br>
+<p>이메일</p>
+        </p>
+                <p>
+            <b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="device_name"
+               data-endpoint="POSTapi-auth-token"
+               value="device-name"
+               data-component="body" hidden>
+    <br>
+<p>토큰 발급에 쓰일 디바이스명</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-token"
+               value="test1234"
+               data-component="body" hidden>
+    <br>
+<p>패스워드<br>(쌀먹 자체 로그인의 경우 꼭 기입해주세요)</p>
+        </p>
+                <p>
+            <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="POSTapi-auth-token"
+               value="111086235715594204387"
+               data-component="body" hidden>
+    <br>
+<p>SNS 아이디<br>(SNS 로그인의 경우 꼭 기입해주세요)</p>
+        </p>
+        </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>bearer_token</code></b>&nbsp;&nbsp;  &nbsp;
+<br>
+<p>Bearer 토큰</p>
+        </p>
+                <h2 id="bearer-token-DELETEapi-auth-token">토큰 삭제 (로그아웃)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>유저가 현재 액세스한 토큰의 정보를 DB상에서 삭제합니다. 일반적으로 로그아웃 시에 사용되며
+해당 API 실행 이후 파괴된 토큰으로는 두번 다시 해당 토큰을 통한 인증이 불가능합니다.</p>
+
+<span id="example-requests-DELETEapi-auth-token">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://sm-dev.udnm.co.kr/api/auth/token" \
+    --header "Authorization: Bearer 6PVcfgb3haE5keD8Z4ad61v" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/auth/token"
+);
+
+const headers = {
+    "Authorization": "Bearer 6PVcfgb3haE5keD8Z4ad61v",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-auth-token">
+</span>
+<span id="execution-results-DELETEapi-auth-token" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-auth-token"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-auth-token"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-auth-token" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-auth-token"></code></pre>
+</span>
+<form id="form-DELETEapi-auth-token" data-method="DELETE"
+      data-path="api/auth/token"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer 6PVcfgb3haE5keD8Z4ad61v","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-auth-token', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-auth-token"
+                    onclick="tryItOut('DELETEapi-auth-token');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-auth-token"
+                    onclick="cancelTryOut('DELETEapi-auth-token');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-auth-token" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/auth/token</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-auth-token" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-auth-token"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="email-verify">Email Verify</h1>
+
+    <p>이메일 검증을 합니다.
+유저가 메일 링크를 클릭하여 동작하는 로직입니다
+어플 내에서는 기본적으로 호출할 일이 없으니 참고용으로만 써주세요.</p>
+
+            <h2 id="email-verify-GETapi-verify-email--id---hash-">이메일 검증</h2>
+
+<p>
+</p>
+
+<p>유저 정보를 조회해 검증 처리를 합니다.
+해당 로직을 접근할 수 있는 URL은 서버 내에서 검증된 URL입니다.
+일반적으로 접근할 수 없습니다.</p>
+
+<span id="example-requests-GETapi-verify-email--id---hash-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://sm-dev.udnm.co.kr/api/verify-email/16/aperiam" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/verify-email/16/aperiam"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-verify-email--id---hash-">
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 6
+x-ratelimit-remaining: 5
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Invalid signature.&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Routing\\Exceptions\\InvalidSignatureException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ValidateSignature.php&quot;,
+    &quot;line&quot;: 26,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ValidateSignature&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 127,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 63,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 127,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 723,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 698,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 128,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Fruitcake\\Cors\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\app\\Http\\Middleware\\JsonAccept.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\JsonAccept&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 142,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 111,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 222,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 179,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 117,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 75,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 653,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 298,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1015,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php&quot;,
+            &quot;line&quot;: 94,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 129,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\DNM-Dev2\\Desktop\\디앤엠\\개발\\쌀먹\\git repos\\ssalmuk-api\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-verify-email--id---hash-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-verify-email--id---hash-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-verify-email--id---hash-"></code></pre>
+</span>
+<span id="execution-error-GETapi-verify-email--id---hash-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-verify-email--id---hash-"></code></pre>
+</span>
+<form id="form-GETapi-verify-email--id---hash-" data-method="GET"
+      data-path="api/verify-email/{id}/{hash}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-verify-email--id---hash-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-verify-email--id---hash-"
+                    onclick="tryItOut('GETapi-verify-email--id---hash-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-verify-email--id---hash-"
+                    onclick="cancelTryOut('GETapi-verify-email--id---hash-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-verify-email--id---hash-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/verify-email/{id}/{hash}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-verify-email--id---hash-"
+               value="16"
+               data-component="url" hidden>
+    <br>
+<p>유저의 키값</p>
+            </p>
+                    <p>
+                <b><code>hash</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="hash"
+               data-endpoint="GETapi-verify-email--id---hash-"
+               value="aperiam"
+               data-component="url" hidden>
+    <br>
+<p>서버내부에서 처리한 해시값</p>
+            </p>
+                    </form>
+
+        <h1 id="email-verify-resend">Email Verify ReSend</h1>
+
+    
+
+            <h2 id="email-verify-resend-POSTapi-email-verification-notification">이메일 인증 재발송</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>이메일 인증을 위한 메일을 재발송하는 API입니다.
+인증 메일을 받게 될 이메일 정보를 입력해야합니다.</p>
+
+<span id="example-requests-POSTapi-email-verification-notification">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://sm-dev.udnm.co.kr/api/email/verification-notification" \
+    --header "Authorization: Bearer eE8dPZ5g3V16D6kfa4achvb" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"test@test.co.kr\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/email/verification-notification"
+);
+
+const headers = {
+    "Authorization": "Bearer eE8dPZ5g3V16D6kfa4achvb",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "test@test.co.kr"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-email-verification-notification">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;0000&quot;,
+        &quot;msg&quot;: &quot;성공&quot;
+    },
+    &quot;body&quot;: []
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;1000&quot;,
+        &quot;msg&quot;: &quot;이미 인증된 이메일 입니다.&quot;
+    },
+    &quot;body&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-email-verification-notification" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-email-verification-notification"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-email-verification-notification"></code></pre>
+</span>
+<span id="execution-error-POSTapi-email-verification-notification" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-email-verification-notification"></code></pre>
+</span>
+<form id="form-POSTapi-email-verification-notification" data-method="POST"
+      data-path="api/email/verification-notification"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer eE8dPZ5g3V16D6kfa4achvb","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-email-verification-notification', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-email-verification-notification"
+                    onclick="tryItOut('POSTapi-email-verification-notification');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-email-verification-notification"
+                    onclick="cancelTryOut('POSTapi-email-verification-notification');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-email-verification-notification" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/email/verification-notification</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-email-verification-notification" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-email-verification-notification"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-email-verification-notification"
+               value="test@test.co.kr"
+               data-component="body" hidden>
+    <br>
+<p>이메일</p>
+        </p>
+        </form>
+
+        <h1 id="sign-up">Sign Up</h1>
+
+    <p>자체 회원가입 / SNS 로그인(회원가입)을 지원합니다.</p>
+
+            <h2 id="sign-up-POSTapi-register">회원가입</h2>
+
+<p>
+</p>
+
+<p>회원가입 처리를 하는 API입니다.</p>
+
+<span id="example-requests-POSTapi-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://sm-dev.udnm.co.kr/api/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"platform\": \"naver\",
+    \"nickname\": \"mynickname1234\",
+    \"email\": \"test@test.co.kr\",
+    \"device_name\": \"device-name\",
+    \"password\": \"test1234\",
+    \"id\": \"111086235715594204387\",
+    \"is_push\": \"false\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "platform": "naver",
+    "nickname": "mynickname1234",
+    "email": "test@test.co.kr",
+    "device_name": "device-name",
+    "password": "test1234",
+    "id": "111086235715594204387",
+    "is_push": "false"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-register">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;0000&quot;,
+        &quot;msg&quot;: &quot;성공&quot;
+    },
+    &quot;body&quot;: {
+        &quot;bearer_token&quot;: &quot;19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-register"></code></pre>
+</span>
+<form id="form-POSTapi-register" data-method="POST"
+      data-path="api/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-register"
+                    onclick="tryItOut('POSTapi-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-register"
+                    onclick="cancelTryOut('POSTapi-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>platform</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="platform"
+               data-endpoint="POSTapi-register"
+               value="naver"
+               data-component="body" hidden>
+    <br>
+<p>회원가입 플랫폼<br>(<code>native</code>-기본값, <code>naver</code>, <code>kakao</code>, <code>google</code>)</p>
+        </p>
+                <p>
+            <b><code>nickname</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="nickname"
+               data-endpoint="POSTapi-register"
+               value="mynickname1234"
+               data-component="body" hidden>
+    <br>
+<p>닉네임</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-register"
+               value="test@test.co.kr"
+               data-component="body" hidden>
+    <br>
+<p>이메일</p>
+        </p>
+                <p>
+            <b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="device_name"
+               data-endpoint="POSTapi-register"
+               value="device-name"
+               data-component="body" hidden>
+    <br>
+<p>토큰 발급에 쓰일 디바이스명</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-register"
+               value="test1234"
+               data-component="body" hidden>
+    <br>
+<p>패스워드<br>(쌀먹 자체 회원가입의 경우 꼭 기입해주세요)</p>
+        </p>
+                <p>
+            <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="POSTapi-register"
+               value="111086235715594204387"
+               data-component="body" hidden>
+    <br>
+<p>SNS 아이디<br>(SNS 회원가입의 경우 꼭 기입해주세요)</p>
+        </p>
+                <p>
+            <b><code>is_push</code></b>&nbsp;&nbsp;<small>boolean/string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="is_push"
+               data-endpoint="POSTapi-register"
+               value="false"
+               data-component="body" hidden>
+    <br>
+<p>푸시 발송 여부</p>
+        </p>
+        </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>bearer_token</code></b>&nbsp;&nbsp;  &nbsp;
+<br>
+<p>Bearer 토큰</p>
+        </p>
+            <h1 id="social-login">Social Login</h1>
+
+    <p>소셜 로그인/회원가입 처리를 합니다.</p>
+
+            <h2 id="social-login-POSTapi-auth-social">소셜 로그인/회원가입</h2>
+
+<p>
+</p>
+
+<p>소셜 로그인을 통해 소셜 측 유저 데이터를 서버에서 전달 받아<br>
+해당 데이터를 기반으로 가입 여부를 판단합니다.</p>
+<p>
+    <b>가입하지 않았을 경우 회원가입, 가입했을 경우 로그인 로직을 탑니다.</b><br>
+    <b>response 데이터는 회원가입 API와 로그인 API 부분을 참고해주세요</b>
+</p>
+<aside>
+유저의 닉네임 데이터는 로그인 처리할 때는 필요하지 않지만 회원가입 처리 시에는 필요하므로 꼭 보내주세요.
+</aside>
+
+<span id="example-requests-POSTapi-auth-social">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://sm-dev.udnm.co.kr/api/auth/social" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"platform\": \"naver\",
+    \"email\": \"test@test.co.kr\",
+    \"nickname\": \"mynickname1234\",
+    \"device_name\": \"device-name\",
+    \"id\": \"111086235715594204387\",
+    \"is_push\": \"false\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://sm-dev.udnm.co.kr/api/auth/social"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "platform": "naver",
+    "email": "test@test.co.kr",
+    "nickname": "mynickname1234",
+    "device_name": "device-name",
+    "id": "111086235715594204387",
+    "is_push": "false"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-social">
+</span>
+<span id="execution-results-POSTapi-auth-social" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-social"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-social"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-social" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-social"></code></pre>
+</span>
+<form id="form-POSTapi-auth-social" data-method="POST"
+      data-path="api/auth/social"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-social', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-social"
+                    onclick="tryItOut('POSTapi-auth-social');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-social"
+                    onclick="cancelTryOut('POSTapi-auth-social');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-social" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/social</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>platform</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="platform"
+               data-endpoint="POSTapi-auth-social"
+               value="naver"
+               data-component="body" hidden>
+    <br>
+<p>로그인 플랫폼<br>(<code>naver</code>, <code>kakao</code>, <code>google</code>)</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-social"
+               value="test@test.co.kr"
+               data-component="body" hidden>
+    <br>
+<p>이메일</p>
+        </p>
+                <p>
+            <b><code>nickname</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="nickname"
+               data-endpoint="POSTapi-auth-social"
+               value="mynickname1234"
+               data-component="body" hidden>
+    <br>
+<p>닉네임</p>
+        </p>
+                <p>
+            <b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="device_name"
+               data-endpoint="POSTapi-auth-social"
+               value="device-name"
+               data-component="body" hidden>
+    <br>
+<p>토큰 발급에 쓰일 디바이스명</p>
+        </p>
+                <p>
+            <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="POSTapi-auth-social"
+               value="111086235715594204387"
+               data-component="body" hidden>
+    <br>
+<p>SNS 아이디</p>
+        </p>
+                <p>
+            <b><code>is_push</code></b>&nbsp;&nbsp;<small>boolean/string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="is_push"
+               data-endpoint="POSTapi-auth-social"
+               value="false"
+               data-component="body" hidden>
+    <br>
+<p>푸시 발송 여부</p>
+        </p>
+        </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/sm-dev.udnm.co.kr"
+        }
+    ],
+    "info": {
+        "name": "\uc300\uba39",
+        "_postman_id": "c16ccae4-29c9-4c62-9e8a-acc25aed1177",
+        "description": "\uc300\uba39 API\uc5d0 \uad00\ub828\ud55c \ubb38\uc11c\uc785\ub2c8\ub2e4.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Advertisement",
+            "description": "\n\uad11\uace0\uc5d0 \uad00\ub828\ud55c API\ub97c \uc9c0\uc6d0\ud569\ub2c8\ub2e4.",
+            "item": [
+                {
+                    "name": "\uad11\uace0 \ub9ac\uc2a4\ud2b8",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ad\/list",
+                            "query": [
+                                {
+                                    "key": "position",
+                                    "value": "1",
+                                    "description": "\uad11\uace0 \uc704\uce58(\uae30\ubcf8\uac12 : 1)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/ad\/list?position=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\ud3ec\uc9c0\uc158(\uad11\uace0 \uc704\uce58)\uc5d0 \ub9de\ub294 \uad11\uace0 \ub9ac\uc2a4\ud2b8\ub97c \uac00\uc838\uc635\ub2c8\ub2e4.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"header\":{\"code\":\"0000\",\"msg\":\"\\uc131\\uacf5\"},\"body\":{\"ad_list\":[{\"id\":112,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/cnn.com\\\/en-us\",\"ad_title\":\"pede. Cras vulputate velit\",\"ad_company\":\"sapien,\",\"ad_note\":\"metus. In lorem. Donec elementum, lorem ut aliquam iaculis,\",\"ad_start_at\":\"2021-03-29 23:41:33\",\"ad_end_at\":\"2022-05-14 16:48:09\",\"order\":1,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"},{\"id\":188,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/cnn.com\\\/en-ca\",\"ad_title\":\"egestas hendrerit\",\"ad_company\":\"diam\",\"ad_note\":\"Cras eu\",\"ad_start_at\":\"2021-03-13 09:49:40\",\"ad_end_at\":\"2022-10-12 13:26:00\",\"order\":1,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"},{\"id\":177,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/naver.com\\\/user\\\/110\",\"ad_title\":\"primis\",\"ad_company\":\"Vivamus\",\"ad_note\":\"facilisis eget, ipsum.\",\"ad_start_at\":\"2021-03-26 13:33:04\",\"ad_end_at\":\"2022-07-01 07:42:03\",\"order\":2,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"},{\"id\":124,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/baidu.com\\\/en-us\",\"ad_title\":\"In nec orci. Donec\",\"ad_company\":\"tincidunt\",\"ad_note\":\"ligula\",\"ad_start_at\":\"2021-03-29 15:50:30\",\"ad_end_at\":\"2023-01-26 19:38:17\",\"order\":4,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"},{\"id\":151,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/bbc.co.uk\\\/fr\",\"ad_title\":\"Aliquam ultrices iaculis\",\"ad_company\":\"nunc\",\"ad_note\":\"non, cursus non, egestas a,\",\"ad_start_at\":\"2021-03-22 00:42:50\",\"ad_end_at\":\"2022-11-09 22:09:59\",\"order\":6,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"},{\"id\":186,\"ad_position\":1,\"ad_image_url\":\"http:\\\/\\\/twitter.com\\\/settings\",\"ad_title\":\"metus sit amet ante.\",\"ad_company\":\"cursus\",\"ad_note\":\"Pellentesque ultricies dignissim lacus.\",\"ad_start_at\":\"2021-03-12 03:56:41\",\"ad_end_at\":\"2022-03-29 15:00:03\",\"order\":9,\"created_at\":\"2021-03-07T01:09:00.000000Z\",\"updated_at\":\"2021-03-07T01:09:00.000000Z\"}]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Bearer Token",
+            "description": "\n\uc778\uc99d(\ub85c\uadf8\uc778)\uc5d0 \ud544\uc694\ud55c \ud1a0\ud070 \uad00\ub828 API\uc785\ub2c8\ub2e4.",
+            "item": [
+                {
+                    "name": "\ud1a0\ud070 \uc0dd\uc131 (\ub85c\uadf8\uc778)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/token",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/token"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"platform\":\"naver\",\"email\":\"test@test.co.kr\",\"device_name\":\"device-name\",\"password\":\"test1234\",\"id\":\"111086235715594204387\"}"
+                        },
+                        "description": "\ud1a0\ud070 \uc0dd\uc131 API \uc785\ub2c8\ub2e4. \uc77c\ubc18\uc801\uc73c\ub85c \ub85c\uadf8\uc778 \ucc98\ub9ac\ub97c \uc704\ud55c \ud1a0\ud070\uc744 \ubc1c\uae09\ubc1b\uc744 \ub54c \uc0ac\uc6a9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"header\": {\n       \"code\": \"0000\",\n       \"msg\": \"\uc131\uacf5\"\n   },\n   \"body\": {\n       \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\ud1a0\ud070 \uc0ad\uc81c (\ub85c\uadf8\uc544\uc6c3)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/token",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/token"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\uc720\uc800\uac00 \ud604\uc7ac \uc561\uc138\uc2a4\ud55c \ud1a0\ud070\uc758 \uc815\ubcf4\ub97c DB\uc0c1\uc5d0\uc11c \uc0ad\uc81c\ud569\ub2c8\ub2e4. \uc77c\ubc18\uc801\uc73c\ub85c \ub85c\uadf8\uc544\uc6c3 \uc2dc\uc5d0 \uc0ac\uc6a9\ub418\uba70\n\ud574\ub2f9 API \uc2e4\ud589 \uc774\ud6c4 \ud30c\uad34\ub41c \ud1a0\ud070\uc73c\ub85c\ub294 \ub450\ubc88 \ub2e4\uc2dc \ud574\ub2f9 \ud1a0\ud070\uc744 \ud1b5\ud55c \uc778\uc99d\uc774 \ubd88\uac00\ub2a5\ud569\ub2c8\ub2e4."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Email Verify",
+            "description": "\n\uc774\uba54\uc77c \uac80\uc99d\uc744 \ud569\ub2c8\ub2e4. \n\uc720\uc800\uac00 \uba54\uc77c \ub9c1\ud06c\ub97c \ud074\ub9ad\ud558\uc5ec \ub3d9\uc791\ud558\ub294 \ub85c\uc9c1\uc785\ub2c8\ub2e4\n\uc5b4\ud50c \ub0b4\uc5d0\uc11c\ub294 \uae30\ubcf8\uc801\uc73c\ub85c \ud638\ucd9c\ud560 \uc77c\uc774 \uc5c6\uc73c\ub2c8 \ucc38\uace0\uc6a9\uc73c\ub85c\ub9cc \uc368\uc8fc\uc138\uc694.",
+            "item": [
+                {
+                    "name": "\uc774\uba54\uc77c \uac80\uc99d",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/verify-email\/:id\/:hash",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/verify-email\/:id\/:hash",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "\uc720\uc800\uc758 \ud0a4\uac12"
+                                },
+                                {
+                                    "id": "hash",
+                                    "key": "hash",
+                                    "value": "aperiam",
+                                    "description": "\uc11c\ubc84\ub0b4\ubd80\uc5d0\uc11c \ucc98\ub9ac\ud55c \ud574\uc2dc\uac12"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\uc720\uc800 \uc815\ubcf4\ub97c \uc870\ud68c\ud574 \uac80\uc99d \ucc98\ub9ac\ub97c \ud569\ub2c8\ub2e4.\n\ud574\ub2f9 \ub85c\uc9c1\uc744 \uc811\uadfc\ud560 \uc218 \uc788\ub294 URL\uc740 \uc11c\ubc84 \ub0b4\uc5d0\uc11c \uac80\uc99d\ub41c URL\uc785\ub2c8\ub2e4.\n\uc77c\ubc18\uc801\uc73c\ub85c \uc811\uadfc\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "6"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "5"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"Invalid signature.\",\n    \"exception\": \"Illuminate\\\\Routing\\\\Exceptions\\\\InvalidSignatureException\",\n    \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ValidateSignature.php\",\n    \"line\": 26,\n    \"trace\": [\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ValidateSignature\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests.php\",\n            \"line\": 127,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests.php\",\n            \"line\": 63,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests.php\",\n            \"line\": 127,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests.php\",\n            \"line\": 103,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests.php\",\n            \"line\": 55,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 723,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 698,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 662,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 651,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 167,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 128,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\fruitcake\\\\laravel-cors\\\\src\\\\HandleCors.php\",\n            \"line\": 52,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Fruitcake\\\\Cors\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\app\\\\Http\\\\Middleware\\\\JsonAccept.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\JsonAccept\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 142,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 111,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 299,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 48,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Console\\\\Kernel.php\",\n            \"line\": 129,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\DNM-Dev2\\\\Desktop\\\\\\ub514\\uc564\\uc5e0\\\\\\uac1c\\ubc1c\\\\\\uc300\\uba39\\\\git repos\\\\ssalmuk-api\\\\artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Email Verify ReSend",
+            "description": "",
+            "item": [
+                {
+                    "name": "\uc774\uba54\uc77c \uc778\uc99d \uc7ac\ubc1c\uc1a1",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/email\/verification-notification",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/email\/verification-notification"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"test@test.co.kr\"}"
+                        },
+                        "description": "\uc774\uba54\uc77c \uc778\uc99d\uc744 \uc704\ud55c \uba54\uc77c\uc744 \uc7ac\ubc1c\uc1a1\ud558\ub294 API\uc785\ub2c8\ub2e4.\n\uc778\uc99d \uba54\uc77c\uc744 \ubc1b\uac8c \ub420 \uc774\uba54\uc77c \uc815\ubcf4\ub97c \uc785\ub825\ud574\uc57c\ud569\ub2c8\ub2e4."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"header\": {\n        \"code\": \"0000\",\n        \"msg\": \"\uc131\uacf5\"\n    },\n    \"body\": []\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"header\": {\n        \"code\": \"1000\",\n        \"msg\": \"\uc774\ubbf8 \uc778\uc99d\ub41c \uc774\uba54\uc77c \uc785\ub2c8\ub2e4.\"\n    },\n    \"body\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Sign Up",
+            "description": "\n\uc790\uccb4 \ud68c\uc6d0\uac00\uc785 \/ SNS \ub85c\uadf8\uc778(\ud68c\uc6d0\uac00\uc785)\uc744 \uc9c0\uc6d0\ud569\ub2c8\ub2e4.",
+            "item": [
+                {
+                    "name": "\ud68c\uc6d0\uac00\uc785",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"platform\":\"naver\",\"nickname\":\"mynickname1234\",\"email\":\"test@test.co.kr\",\"device_name\":\"device-name\",\"password\":\"test1234\",\"id\":\"111086235715594204387\",\"is_push\":\"false\"}"
+                        },
+                        "description": "\ud68c\uc6d0\uac00\uc785 \ucc98\ub9ac\ub97c \ud558\ub294 API\uc785\ub2c8\ub2e4.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n   \"header\": {\n       \"code\": \"0000\",\n       \"msg\": \"\uc131\uacf5\"\n   },\n   \"body\": {\n       \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Social Login",
+            "description": "\n\uc18c\uc15c \ub85c\uadf8\uc778\/\ud68c\uc6d0\uac00\uc785 \ucc98\ub9ac\ub97c \ud569\ub2c8\ub2e4.",
+            "item": [
+                {
+                    "name": "\uc18c\uc15c \ub85c\uadf8\uc778\/\ud68c\uc6d0\uac00\uc785",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/social",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/social"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"platform\":\"naver\",\"email\":\"test@test.co.kr\",\"nickname\":\"mynickname1234\",\"device_name\":\"device-name\",\"id\":\"111086235715594204387\",\"is_push\":\"false\"}"
+                        },
+                        "description": "\uc18c\uc15c \ub85c\uadf8\uc778\uc744 \ud1b5\ud574 \uc18c\uc15c \uce21 \uc720\uc800 \ub370\uc774\ud130\ub97c \uc11c\ubc84\uc5d0\uc11c \uc804\ub2ec \ubc1b\uc544<br>\n\ud574\ub2f9 \ub370\uc774\ud130\ub97c \uae30\ubc18\uc73c\ub85c \uac00\uc785 \uc5ec\ubd80\ub97c \ud310\ub2e8\ud569\ub2c8\ub2e4.\n\n<p>\n    <b>\uac00\uc785\ud558\uc9c0 \uc54a\uc558\uc744 \uacbd\uc6b0 \ud68c\uc6d0\uac00\uc785, \uac00\uc785\ud588\uc744 \uacbd\uc6b0 \ub85c\uadf8\uc778 \ub85c\uc9c1\uc744 \ud0d1\ub2c8\ub2e4.<\/b><br>\n    <b>response \ub370\uc774\ud130\ub294 \ud68c\uc6d0\uac00\uc785 API\uc640 \ub85c\uadf8\uc778 API \ubd80\ubd84\uc744 \ucc38\uace0\ud574\uc8fc\uc138\uc694<\/b>\n<\/p>\n\n<aside>\n\uc720\uc800\uc758 \ub2c9\ub124\uc784 \ub370\uc774\ud130\ub294 \ub85c\uadf8\uc778 \ucc98\ub9ac\ud560 \ub54c\ub294 \ud544\uc694\ud558\uc9c0 \uc54a\uc9c0\ub9cc \ud68c\uc6d0\uac00\uc785 \ucc98\ub9ac \uc2dc\uc5d0\ub294 \ud544\uc694\ud558\ubbc0\ub85c \uaf2d \ubcf4\ub0b4\uc8fc\uc138\uc694.\n<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

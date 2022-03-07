@@ -1,0 +1,89 @@
+name: 'Sign Up'
+description: |-
+
+  자체 회원가입 / SNS 로그인(회원가입)을 지원합니다.
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      title: 회원가입
+      description: '회원가입 처리를 하는 API입니다.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      platform:
+        name: platform
+        description: '회원가입 플랫폼<br>(`native`-기본값, `naver`, `kakao`, `google`)'
+        required: false
+        example: naver
+        type: string
+        custom: []
+      nickname:
+        name: nickname
+        description: 닉네임
+        required: true
+        example: mynickname1234
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 이메일
+        required: true
+        example: test@test.co.kr
+        type: string
+        custom: []
+      device_name:
+        name: device_name
+        description: '토큰 발급에 쓰일 디바이스명'
+        required: true
+        example: device-name
+        type: string
+        custom: []
+      password:
+        name: password
+        description: '패스워드<br>(쌀먹 자체 회원가입의 경우 꼭 기입해주세요)'
+        required: false
+        example: test1234
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'SNS 아이디<br>(SNS 회원가입의 경우 꼭 기입해주세요)'
+        required: false
+        example: '111086235715594204387'
+        type: string
+        custom: []
+      is_push:
+        name: is_push
+        description: '푸시 발송 여부'
+        required: false
+        example: 'false'
+        type: boolean/string
+        custom: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+             "header": {
+                 "code": "0000",
+                 "msg": "성공"
+             },
+             "body": {
+                 "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+             }
+          }
+        headers: []
+        description: '201'
+    responseFields:
+      bearer_token:
+        name: bearer_token
+        description: 'Bearer 토큰'
+        type: ''

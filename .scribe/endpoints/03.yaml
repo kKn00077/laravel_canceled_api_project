@@ -1,0 +1,54 @@
+name: 'Email Verify ReSend'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/email/verification-notification
+    metadata:
+      title: '이메일 인증 재발송'
+      description: |-
+        이메일 인증을 위한 메일을 재발송하는 API입니다.
+        인증 메일을 받게 될 이메일 정보를 입력해야합니다.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer eE8dPZ5g3V16D6kfa4achvb'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 이메일
+        required: true
+        example: test@test.co.kr
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "header": {
+                  "code": "0000",
+                  "msg": "성공"
+              },
+              "body": []
+          }
+        headers: []
+        description: '200'
+      -
+        status: 200
+        content: |-
+          {
+              "header": {
+                  "code": "1000",
+                  "msg": "이미 인증된 이메일 입니다."
+              },
+              "body": []
+          }
+        headers: []
+        description: '200'
+    responseFields: []
