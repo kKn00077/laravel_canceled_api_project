@@ -152,22 +152,12 @@ class RegisteredUserController extends Controller
         /**
          * 조건 미달시 반환한 메세지 정의
          */
-        $message = [
-            'required' => ':attribute 값을 입력해주세요',
-            'email.unique' => '이미 가입이 되어있는 :attribute입니다',
-            'nickname.regex' => ':attribute은 한글 2글자 이상 혹은 영문/숫자 3글자 이상으로 이루어져야 합니다',
-            'min' => ':attribute의 최소 글자수는 :min자리입니다',
-            'max' => ':attribute의 최대 글자수는 :max자리입니다',
-        ];
+        $message = [];
 
         /*
         * 각 필드값 별 :attribute 값 정의 
         */
-        $field = [
-            'nickname' => '닉네임',
-            'email' => '이메일',
-            'device_name' => '디바이스명'
-        ];
+        $field = [];
 
         if($this->platform == 'native') { // 자체 회원가입의 추가 유효성 체크
             $validate['password'] = [
@@ -176,11 +166,6 @@ class RegisteredUserController extends Controller
                 'regex:/(?=.*\d)(?=.*[!?@#$%^&*():;+-=~])([^\s]){8,}$|^(?=.*\d)(?=.*[a-zA-Z])([^\s]){8,}$|^(?=.*[a-zA-Z])(?=.*[!?@#$%^&*():;+-=~])([^\s]){8,}$/', // 영문/숫자/특수문자 중 2가지 이상 조합
                 'not_regex:/(\w)\1\1/' // 연속된 문자 3개 이상일 경우 불일치 체크
             ];
-
-            $message['password.regex'] = ':attribute는 영문/숫자/특수문자 중 2가지 이상 조합으로 이루어져야 합니다';
-            $message['password.not_regex'] = ':attribute에는 동일한 문자가 3글자 연속으로 들어갈 수 없습니다';
-
-            $field['password'] = '패스워드';
         } else { // SNS 회원가입의 추가 유효성 체크
             $validate['id'] = [
                 'required',

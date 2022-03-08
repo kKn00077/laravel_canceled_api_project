@@ -88,19 +88,13 @@ class AuthenticatedTokenController extends Controller
             'device_name' => 'required', 
         ];
 
-        $message = [
-            'required' => ':attribute 값을 입력해주세요',
-        ];
+        $message = [];
 
-        $field = [
-            'email' => '이메일',
-            'device_name' => '디바이스명'
-        ];
+        $field = [];
 
         if($this->platform == 'native') { // 자체 로그인의 추가 유효성 체크
 
             $validate['password'] = 'required';
-            $field['password'] = '패스워드';
 
         } else { // SNS 로그인의 추가 유효성 체크
 

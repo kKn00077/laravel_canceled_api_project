@@ -89,19 +89,6 @@ class EmailVerificationNotificationController extends Controller
             array_push($validator_data['email'], 'unique:users');
         }
 
-        return $request->validate($validator_data, [
-            /**
-             * 조건 미달시 반환한 메세지 정의
-             */
-            'required' => ':attribute 값을 입력해주세요',
-            'email.unique' => '이미 가입이 되어있는 :attribute입니다',
-            'min' => ':attribute의 최소 글자수는 :min자리입니다',
-            'max' => ':attribute의 최대 글자수는 :max자리입니다',
-        ], [
-            /*
-             * 각 필드값 별 :attribute 값 정의 
-             */
-            'email' => '이메일',
-        ]);
+        return $request->validate($validator_data);
     }
 }
