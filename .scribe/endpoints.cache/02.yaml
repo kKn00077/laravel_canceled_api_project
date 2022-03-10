@@ -27,14 +27,14 @@ endpoints:
         name: id
         description: '유저의 키값'
         required: true
-        example: 16
+        example: 1
         type: integer
         custom: []
       hash:
         name: hash
         description: '서버내부에서 처리한 해시값'
         required: true
-        example: aperiam
+        example: dolor
         type: string
         custom: []
     queryParameters: []

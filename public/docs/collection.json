@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "\uc300\uba39",
-        "_postman_id": "c16ccae4-29c9-4c62-9e8a-acc25aed1177",
+        "_postman_id": "f507dba6-6cd6-49c8-8615-4b15ab73cc2b",
         "description": "\uc300\uba39 API\uc5d0 \uad00\ub828\ud55c \ubb38\uc11c\uc785\ub2c8\ub2e4.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -121,7 +121,19 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n   \"header\": {\n       \"code\": \"0000\",\n       \"msg\": \"\uc131\uacf5\"\n   },\n   \"body\": {\n       \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "body": "{\n   \"header\": {\n      \"code\": \"0000\",\n      \"msg\": \"\uc131\uacf5\"\n   },\n   \"body\": {\n      \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"header\": {\n      \"code\": \"1001\",\n      \"msg\": \"\uc778\uc99d\ub41c \uacc4\uc815\uc774 \uc544\ub2d9\ub2c8\ub2e4.\"\n    },\n   \"body\": {\n      \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n   \"header\": {\n      \"code\": \"2000\",\n      \"msg\": \"\uc720\ud6a8\uc131 \uccb4\ud06c \uc911 \ub0b4\ubd80 \ubd88\uc77c\uce58 \ud56d\ubaa9\uc744 \ubc1c\uacac\ud588\uc2b5\ub2c8\ub2e4.\"\n   },\n   \"body\": {\n      \"message\": \"The given data was invalid.\",\n      \"errors\": {\n          \"email\": [\n              \"\uacc4\uc815\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.\"\n          ]\n      }\n   }\n}",
                             "name": ""
                         }
                     ]
@@ -169,13 +181,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "16",
+                                    "value": "1",
                                     "description": "\uc720\uc800\uc758 \ud0a4\uac12"
                                 },
                                 {
                                     "id": "hash",
                                     "key": "hash",
-                                    "value": "aperiam",
+                                    "value": "dolor",
                                     "description": "\uc11c\ubc84\ub0b4\ubd80\uc5d0\uc11c \ucc98\ub9ac\ud55c \ud574\uc2dc\uac12"
                                 }
                             ]
@@ -313,7 +325,7 @@
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\n   \"header\": {\n       \"code\": \"0000\",\n       \"msg\": \"\uc131\uacf5\"\n   },\n   \"body\": {\n       \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
+                            "body": "{\n   \"header\": {\n       \"code\": \"0001\",\n       \"msg\": \"\uc131\uacf5\uc801\uc73c\ub85c \uc0dd\uc131\ub418\uc5c8\uc2b5\ub2c8\ub2e4.\"\n   },\n   \"body\": {\n       \"bearer_token\": \"19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm\"\n   }\n}",
                             "name": ""
                         }
                     ]

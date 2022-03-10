@@ -61,15 +61,48 @@ endpoints:
         content: |-
           {
              "header": {
-                 "code": "0000",
-                 "msg": "성공"
+                "code": "0000",
+                "msg": "성공"
              },
              "body": {
-                 "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+                "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
              }
           }
         headers: []
         description: '200'
+      -
+        status: 200
+        content: |-
+          {
+             "header": {
+                "code": "1001",
+                "msg": "인증된 계정이 아닙니다."
+              },
+             "body": {
+                "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+             }
+          }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+             "header": {
+                "code": "2000",
+                "msg": "유효성 체크 중 내부 불일치 항목을 발견했습니다."
+             },
+             "body": {
+                "message": "The given data was invalid.",
+                "errors": {
+                    "email": [
+                        "계정을 찾을 수 없습니다."
+                    ]
+                }
+             }
+          }
+        headers: []
+        description: '422'
     responseFields:
       bearer_token:
         name: bearer_token
@@ -87,7 +120,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Authorization: 'Bearer 6PVcfgb3haE5keD8Z4ad61v'
+      Authorization: 'Bearer f856ehcDPEaVvkab4g316Zd'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []

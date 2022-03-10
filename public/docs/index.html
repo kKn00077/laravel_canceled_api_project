@@ -142,7 +142,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 7 2022</li>
+        <li>Last updated: March 10 2022</li>
     </ul>
 </div>
 
@@ -438,6 +438,41 @@ fetch(url, {
     }
 }</code>
  </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;1001&quot;,
+        &quot;msg&quot;: &quot;인증된 계정이 아닙니다.&quot;
+    },
+    &quot;body&quot;: {
+        &quot;bearer_token&quot;: &quot;19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;header&quot;: {
+        &quot;code&quot;: &quot;2000&quot;,
+        &quot;msg&quot;: &quot;유효성 체크 중 내부 불일치 항목을 발견했습니다.&quot;
+    },
+    &quot;body&quot;: {
+        &quot;message&quot;: &quot;The given data was invalid.&quot;,
+        &quot;errors&quot;: {
+            &quot;email&quot;: [
+                &quot;계정을 찾을 수 없습니다.&quot;
+            ]
+        }
+    }
+}</code>
+ </pre>
     </span>
 <span id="execution-results-POSTapi-auth-token" hidden>
     <blockquote>Received response<span
@@ -554,7 +589,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://sm-dev.udnm.co.kr/api/auth/token" \
-    --header "Authorization: Bearer 6PVcfgb3haE5keD8Z4ad61v" \
+    --header "Authorization: Bearer f856ehcDPEaVvkab4g316Zd" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -565,7 +600,7 @@ fetch(url, {
 );
 
 const headers = {
-    "Authorization": "Bearer 6PVcfgb3haE5keD8Z4ad61v",
+    "Authorization": "Bearer f856ehcDPEaVvkab4g316Zd",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -594,7 +629,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer 6PVcfgb3haE5keD8Z4ad61v","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer f856ehcDPEaVvkab4g316Zd","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-auth-token', this);">
     <h3>
@@ -649,14 +684,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://sm-dev.udnm.co.kr/api/verify-email/16/aperiam" \
+    --get "http://sm-dev.udnm.co.kr/api/verify-email/1/dolor" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://sm-dev.udnm.co.kr/api/verify-email/16/aperiam"
+    "http://sm-dev.udnm.co.kr/api/verify-email/1/dolor"
 );
 
 const headers = {
@@ -1176,7 +1211,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-verify-email--id---hash-"
-               value="16"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>유저의 키값</p>
@@ -1186,7 +1221,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="hash"
                data-endpoint="GETapi-verify-email--id---hash-"
-               value="aperiam"
+               value="dolor"
                data-component="url" hidden>
     <br>
 <p>서버내부에서 처리한 해시값</p>
@@ -1213,7 +1248,7 @@ access-control-allow-origin: *
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://sm-dev.udnm.co.kr/api/email/verification-notification" \
-    --header "Authorization: Bearer eE8dPZ5g3V16D6kfa4achvb" \
+    --header "Authorization: Bearer dPkVDgZa58643cEeh61vabf" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1228,7 +1263,7 @@ access-control-allow-origin: *
 );
 
 const headers = {
-    "Authorization": "Bearer eE8dPZ5g3V16D6kfa4achvb",
+    "Authorization": "Bearer dPkVDgZa58643cEeh61vabf",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1288,7 +1323,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer eE8dPZ5g3V16D6kfa4achvb","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer dPkVDgZa58643cEeh61vabf","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-email-verification-notification', this);">
     <h3>
@@ -1401,8 +1436,8 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;header&quot;: {
-        &quot;code&quot;: &quot;0000&quot;,
-        &quot;msg&quot;: &quot;성공&quot;
+        &quot;code&quot;: &quot;0001&quot;,
+        &quot;msg&quot;: &quot;성공적으로 생성되었습니다.&quot;
     },
     &quot;body&quot;: {
         &quot;bearer_token&quot;: &quot;19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm&quot;

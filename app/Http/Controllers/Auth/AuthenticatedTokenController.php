@@ -36,17 +36,45 @@ class AuthenticatedTokenController extends Controller
      * 
      * @response {
      *    "header": {
-     *        "code": "0000",
-     *        "msg": "성공"
+     *       "code": "0000",
+     *       "msg": "성공"
      *    },
      *    "body": {
-     *        "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+     *       "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+     *    }
+     * }
+     * 
+     * @response {
+     *    "header": {
+     *       "code": "1001",
+     *       "msg": "인증된 계정이 아닙니다."
+     *     },
+     *    "body": {
+     *       "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
+     *    }
+     * }
+     * 
+     * @response 422 {
+     *    "header": {
+     *       "code": "2000",
+     *       "msg": "유효성 체크 중 내부 불일치 항목을 발견했습니다."
+     *    },
+     *    "body": {
+     *       "message": "The given data was invalid.",
+     *       "errors": {
+     *           "email": [
+     *               "계정을 찾을 수 없습니다."
+     *           ]
+     *       }
      *    }
      * }
      * 
      * @responseField bearer_token Bearer 토큰
      */
     public function generate(Request $request) {
+
+        $code = '0000';
+        $msg = 'code.0000';
 
         // 플랫폼 전역 변수 셋팅
         $this->platform = empty($request->platform) ? 'native' : $request->platform;
@@ -70,11 +98,18 @@ class AuthenticatedTokenController extends Controller
                 throw ValidationException::withMessages([
                     'email' => ['계정을 찾을 수 없습니다.'],
                 ]);
+            } else { // 일치할 경우
+
+                // 만약 인증이 되어 있지 않은 계정일 경우
+                if(!$user->hasVerifiedEmail()) {
+                    $code = '1001';
+                    $msg = 'code.1001';
+                }
             }
         }
 
         // 토큰 생성
-        return jsonResponseFormat('0000', __('code.0000'), ['bearer_token' => $user->createToken($request->device_name)->plainTextToken]);
+        return jsonResponseFormat($code, __($msg), ['bearer_token' => $user->createToken($request->device_name)->plainTextToken]);
     }
 
 
