@@ -57,8 +57,8 @@ class RegisteredUserController extends Controller
      * 
      * @response 201 {
      *    "header": {
-     *        "code": "0000",
-     *        "msg": "성공"
+     *        "code": "0001",
+     *        "msg": "성공적으로 생성되었습니다."
      *    },
      *    "body": {
      *        "bearer_token": "19|0HbLWGnpiQ6yYNr01HnFFION139HxCnAltAoM2qm"
