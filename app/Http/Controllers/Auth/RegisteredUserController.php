@@ -133,7 +133,8 @@ class RegisteredUserController extends Controller
                 'required', 
                 'string', 
                 'max:10',
-                'regex:/([\p{Hangul}]{2,})|\w{3,}/u' // 한글 2글자 이상 / 문자/숫자 3글자 이상
+                'regex:/([\p{Hangul}]{2,})|\w{3,}/u', // 한글 2글자 이상 / 문자/숫자 3글자 이상
+                'not_regex:/[!?@#$%^&*():;+-=~{}<>\_\[\]\|\\\"\'\,\.\/\`\₩]$/', // 특수문자 포함 금지
                 ],
             'email' => [
                 'required', 

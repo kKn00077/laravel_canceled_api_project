@@ -147,6 +147,7 @@ return [
         ],
         'nickname' => [
             'regex' => ':attribute은 한글 2글자 이상 혹은 영문/숫자 3글자 이상으로 이루어져야 합니다',
+            'not_regex' => ':attribute에 특수문자가 포함될 수 없습니다'
         ],
         'password' => [
             'regex' => ':attribute는 영문/숫자/특수문자 중 2가지 이상 조합으로 이루어져야 합니다',
