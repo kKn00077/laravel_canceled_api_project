@@ -78,22 +78,29 @@ class AuthenticatedTokenController extends Controller
 
         // 플랫폼 전역 변수 셋팅
         $this->platform = empty($request->platform) ? 'native' : $request->platform;
+        $sns_id = $request->id;
 
         $this->validator($request);
 
         // 유저 조회
-        $user = User::where('email', $request->email)->first();
-        
-        /**
-         * 쌀먹 자체 로그인
-         * 
-         * SNS 로그인의 경우에는 유저 체크를 /auth/social 에서
-         * 미리 하기 때문에 바로 토큰을 생성한다.
-         */
-        if($this->platform == 'native') {
+        $query = User::where('email', $request->email)->where('login_type', $this->platform);
 
-            // 유저 존재 여부 및 패스워드 일치 여부 체크
-            if (!$user || !Hash::check($request->password, $user->password)) {
+        if(!empty($sns_id)) {
+            $query->where('sns_id', $sns_id);
+        }
+
+        $user = $query->first();
+        
+        if(!$user) { // 계정이 있는지 체크
+            throw ValidationException::withMessages([
+                'email' => ['계정을 찾을 수 없습니다.'],
+            ]);
+        }
+
+        if($this->platform == 'native') { // 쌀먹 자체 로그인
+
+            // 패스워드 일치 여부 체크
+            if (!Hash::check($request->password, $user->password)) {
                 // 일치하지 않을 경우 메세지 반환
                 throw ValidationException::withMessages([
                     'email' => ['계정을 찾을 수 없습니다.'],
