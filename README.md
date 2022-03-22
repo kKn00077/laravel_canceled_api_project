@@ -19,4 +19,4 @@ sanctum과 비밀번호 찾기/변경 등은 라라벨 기본 제공 테이블�
 - 회원가입 시 인증 이메일 발송
 - 인증 시 log 처리 및 계정 인증 처리
 - error 코드 지정
-- API 문서 공동 작업 가능함
+- API 문서 공동 작업 가능함 [scribe 라이브러리 사용](https://scribe.knuckles.wtf/)
